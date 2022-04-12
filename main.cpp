@@ -1,3 +1,5 @@
+//Asearch Main program
+//Use g++ to compile, cant user CMAKE
 #include <fstream>
 #include <iostream>
 #include <sstream>

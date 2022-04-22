@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include "Car.h"
+
 using std::cout;
 using std::ifstream;
 using std::istringstream;
@@ -177,6 +179,38 @@ int main() {
   TestSearch();
   TestCheckValidCell();
   TestExpandNeighbors();
+
+    // Create class instances for each car.
+    Car car_1 = Car("green", 1);
+    Car car_2 = Car("red", 2);
+    Car car_3 = Car("blue", 3);
+
+    // Increment car_1's position by 1.
+    car_1.IncrementDistance();
+
+    // Print out the position and color of each car.
+    car_1.PrintCarData();
+    car_2.PrintCarData();
+    car_3.PrintCarData();
+
+    vector<Car*> car_vect;
+    Car* cp = nullptr;
+    vector<string> colors{"red", "green", "blue"};
+for(int i = 0; i < 100; i++){
+  cp = new Car(colors[i%3], i+1);
+  car_vect.push_back(cp);
+}  
+
+for(Car* cp:car_vect){
+  cp->IncrementDistance();
+}
+cp = nullptr;
+
+(*car_vect[99]).IncrementDistance();
+
+for(Car* cp1:car_vect){
+  cp1->PrintCarData();
+}
 
 
 }
